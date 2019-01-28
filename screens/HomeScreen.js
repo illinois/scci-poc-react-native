@@ -6,11 +6,14 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+    View,
+    Dimensions,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+
+const windowDims = Dimensions.get('window');
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -33,7 +36,37 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
+            {/*this._maybeRenderDevelopmentModeWarning()*/}
+
+            <TouchableOpacity
+        style={{
+            flex: 1,
+            // alignItems: 'center',
+            // resizeMode: 'contain',
+            // height: 100,
+            // position: 'relative',
+            
+        }}>
+            <Image
+        source={require('../assets/images/athletics.jpg')}
+        resizeMode='contain'
+        style={{
+            // width: '100%',
+            // resizeMode: 'contain',
+            // alignSelf: 'contain',
+            // flexShrink: 1,
+            // flex: 1,
+            // width: null,
+            // height: null,
+            // flex: .5,
+            width: windowDims.width,
+            // width: 80,
+            // height: null,
+            resizeMode: 'contain',
+            alignSelf: 'center',
+        }}
+            />
+            </TouchableOpacity>
 
             <Text style={styles.getStartedText}>Hello Campus Initiative Platform Team</Text>
 
@@ -103,6 +136,15 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    // athleticsButton: {
+    //     // alignItems: 'center',
+    //     // padding: 10,
+    //     // height: 50,
+    //     // aspectRatio: .375,
+    //     // resizeMode: 'contain',
+    //     // flex: 1,
+    //     alignSelf: 'stretch',
+    // },
   container: {
     flex: 1,
     backgroundColor: '#fff',
