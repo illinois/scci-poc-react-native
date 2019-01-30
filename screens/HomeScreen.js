@@ -39,33 +39,33 @@ export default class HomeScreen extends React.Component {
             {/*this._maybeRenderDevelopmentModeWarning()*/}
 
             <TouchableOpacity
-        style={{
-            flex: 1,
-            // alignItems: 'center',
-            // resizeMode: 'contain',
-            // height: 100,
-            // position: 'relative',
-            
-        }}>
-            <Image
-        source={require('../assets/images/athletics.jpg')}
-        resizeMode='contain'
-        style={{
-            // width: '100%',
-            // resizeMode: 'contain',
-            // alignSelf: 'contain',
-            // flexShrink: 1,
-            // flex: 1,
-            // width: null,
-            // height: null,
-            // flex: .5,
-            width: windowDims.width,
-            // width: 80,
-            // height: null,
-            resizeMode: 'contain',
-            alignSelf: 'center',
-        }}
-            />
+                style={{
+                    flex: 1,
+                    // alignItems: 'center',
+                    // resizeMode: 'contain',
+                    // height: 100,
+                    // position: 'relative',
+
+                }}>
+                <Image
+                    source={require('../assets/images/athletics.jpg')}
+                    resizeMode='contain'
+                    style={{
+                        // width: '100%',
+                        // resizeMode: 'contain',
+                        // alignSelf: 'contain',
+                        // flexShrink: 1,
+                        // flex: 1,
+                        // width: null,
+                        // height: null,
+                        // flex: .5,
+                        width: windowDims.width,
+                        // width: 80,
+                        // height: null,
+                        resizeMode: 'contain',
+                        alignSelf: 'center',
+                    }}
+                />
             </TouchableOpacity>
 
             <Text style={styles.getStartedText}>Hello Campus Initiative Platform Team</Text>
