@@ -9,6 +9,7 @@ import {
     View,
     Dimensions,
     Button,
+    Linking,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -54,9 +55,11 @@ export default class HomeScreen extends React.Component {
                         <Button
                             key={"dyno-button-" + idx}
                             title={widget.get('title')}
-                        onPress={()=>{
-                            console.log(widget.get('title') + " was pressed");
-                        }}
+                            onPress={()=>{
+                                console.log(widget.get('title') + " was pressed");
+                                // this.setState({webViewUri: 'http://google.com'});
+                                Linking.openURL('http://google.com');
+                            }}
                         />
                     );
                 });
