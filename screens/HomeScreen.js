@@ -44,21 +44,29 @@ export default class HomeScreen extends React.Component {
             console.log("have uiConfig");
             let dynoWidgetsSeq = this.state.uiConfig.getIn(['panels', 'home', 'widgets']).toSeq();
             dynoButtons = dynoWidgetsSeq
+                // .filter((widget)=>{
+                //     console.log("widget", widget);
+                //     let title = widget.get('title');
+                //     console.log("title", title);
+                //     return title !== undefined;
+                // })
                 .filter((widget)=>{
-                    console.log("widget", widget);
-                    let title = widget.get('title');
-                    console.log("title", title);
-                    return title !== undefined;
+                    let destination = widget.get('destination')
+                    let hasDestination = destination !== undefined;
+                    let isWebDest = destination.get('type') === 'web';
+                    return hasDestination && isWebDest;
                 })
-               .map((widget, idx)=>{
-                   return (
+                .map((widget, idx)=>{
+                    let destination = widget.get('destination');
+                    let title = destination.get('title');
+                    return (
                         <Button
                             key={"dyno-button-" + idx}
-                            title={widget.get('title')}
+                            title={title}
                             onPress={()=>{
-                                console.log(widget.get('title') + " was pressed");
+                                console.log(title + " was pressed");
                                 // this.setState({webViewUri: 'http://google.com'});
-                                Linking.openURL('http://google.com');
+                                Linking.openURL(destination.get('value'));
                             }}
                         />
                     );
