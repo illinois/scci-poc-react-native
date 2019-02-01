@@ -51,7 +51,7 @@ export default class HomeScreen extends React.Component {
                 //     return title !== undefined;
                 // })
                 .filter((widget)=>{
-                    let destination = widget.get('destination')
+                    let destination = widget.get('destination');
                     let hasDestination = destination !== undefined;
                     let isWebDest = destination.get('type') === 'web';
                     return hasDestination && isWebDest;
