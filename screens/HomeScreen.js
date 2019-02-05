@@ -49,6 +49,8 @@ export default class HomeScreen extends React.Component {
 
     render() {
 
+        const {navigate} = this.props.navigation;
+
         let dynoButtons = null;
         let dynoImageButtons = null;
         if (this.state.uiConfig) {
@@ -133,18 +135,25 @@ export default class HomeScreen extends React.Component {
 
               <View style={styles.getStartedContainer}>
                 {/*this._maybeRenderDevelopmentModeWarning()*/}
-                { dynoButtons }
+            { dynoButtons }
+
+                <Button
+            title="Profile"
+            onPress={() => navigate('Profile', {})}
+                >
+                </Button>
+
               </View>
 
             </ScrollView>
 
-            <View style={styles.tabBarInfoContainer}>
-              <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+            {/* <View style={styles.tabBarInfoContainer}>
+                <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
               <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
                 <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
               </View>
-            </View>
+              </View> */}
           </View>
         );
     }
