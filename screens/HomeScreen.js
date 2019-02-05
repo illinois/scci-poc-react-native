@@ -19,8 +19,6 @@ import Immutable from 'immutable';
 
 import layoutConstants from '../constants/Layout';
 
-// const windowDims = Dimensions.get('window');
-
 const IMAGES_DIR = '../assets/images';
 const BUTTON_IMAGES = {
     'images/campus.jpg': require(`${IMAGES_DIR}/campus.jpg`),
