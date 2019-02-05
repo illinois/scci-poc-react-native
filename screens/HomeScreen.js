@@ -26,7 +26,6 @@ const BUTTON_IMAGES = {
     'images/athletics.jpg': require(`${IMAGES_DIR}/athletics.jpg`),
     'images/krannert.jpg': require(`${IMAGES_DIR}/krannert.jpg`),
     'images/Altgeld.jpg': require(`${IMAGES_DIR}/Altgeld.jpg`),
-    'images/campus.jpg': require(`${IMAGES_DIR}/campus.jpg`),
 };
 
 export default class HomeScreen extends React.Component {
