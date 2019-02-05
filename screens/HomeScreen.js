@@ -121,8 +121,8 @@ export default class HomeScreen extends React.Component {
         }
 
         return (
-          <View style={styles.container}>
-            <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={layoutConstants.styles.container}>
+            <ScrollView style={layoutConstants.styles.container} contentContainerStyle={styles.contentContainer}>
                 {/*<View style={styles.welcomeContainer}>
                 <Image
                   source={
@@ -203,10 +203,10 @@ async function apiTest() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    },
+    // container: {
+    //     flex: 1,
+    //     backgroundColor: '#fff',
+    // },
     developmentModeText: {
         marginBottom: 20,
         color: 'rgba(0,0,0,0.4)',
