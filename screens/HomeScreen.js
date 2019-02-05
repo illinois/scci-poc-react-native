@@ -19,6 +19,16 @@ import Immutable from 'immutable';
 
 const windowDims = Dimensions.get('window');
 
+const IMAGES_DIR = '../assets/images';
+const BUTTON_IMAGES = {
+    'images/campus.jpg': require(`${IMAGES_DIR}/campus.jpg`),
+    'images/Bardeen-Quad2.jpg': require(`${IMAGES_DIR}/Bardeen-Quad2.jpg`),
+    'images/athletics.jpg': require(`${IMAGES_DIR}/athletics.jpg`),
+    'images/krannert.jpg': require(`${IMAGES_DIR}/krannert.jpg`),
+    'images/Altgeld.jpg': require(`${IMAGES_DIR}/Altgeld.jpg`),
+    'images/campus.jpg': require(`${IMAGES_DIR}/campus.jpg`),
+};
+
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
         header: null,
@@ -40,9 +50,27 @@ export default class HomeScreen extends React.Component {
     render() {
 
         let dynoButtons = null;
+        let dynoImageButtons = null;
         if (this.state.uiConfig) {
             console.log("have uiConfig");
             let dynoWidgetsSeq = this.state.uiConfig.getIn(['panels', 'home', 'widgets']).toSeq();
+            let ImageBtn = (props)=>{
+                return (
+                  <TouchableOpacity
+                    onPress={props.onPress}
+                  >
+                    <Image
+                      source={props.source}
+                      resizeMode='contain'
+                      style={{
+                          width: props.width,
+                          height: props.width / props.aspectRatio,
+                      }}
+                    />
+                  </TouchableOpacity>
+                );
+            };
+
             dynoButtons = dynoWidgetsSeq
                 // .filter((widget)=>{
                 //     console.log("widget", widget);
@@ -59,36 +87,35 @@ export default class HomeScreen extends React.Component {
                 .map((widget, idx)=>{
                     let destination = widget.get('destination');
                     let title = destination.get('title');
+                    console.log('widget', widget);
+                    // return (
+                    //     <Button
+                    //         key={"dyno-button-" + idx}
+                    //         title={title}
+                    //         onPress={()=>{
+                    //             console.log(title + " was pressed");
+                    //             // this.setState({webViewUri: 'http://google.com'});
+                    //             Linking.openURL(destination.get('value'));
+                    //         }}
+                    //     />
+                    // );
                     return (
-                        <Button
-                            key={"dyno-button-" + idx}
-                            title={title}
-                            onPress={()=>{
-                                console.log(title + " was pressed");
-                                // this.setState({webViewUri: 'http://google.com'});
-                                Linking.openURL(destination.get('value'));
-                            }}
+                        <ImageBtn
+                          key={`dyno-button-${idx}`}
+                          source={BUTTON_IMAGES[widget.getIn(['image', 'path'])]}
+                          width={windowDims.width * 0.9}
+                          aspectRatio={2.666667}
+                          onPress={()=>{
+                              console.log(`${title} was pressed`);
+                              // this.setState({webViewUri: 'http://google.com'});
+                              Linking.openURL(destination.get('value'));
+                          }}
                         />
                     );
                 });
         } else {
             console.log("no uiConfig");
         }
-
-        let ImageBtn = (props)=>{
-            return (
-                <TouchableOpacity>
-                  <Image
-                    source={props.source}
-                    resizeMode='contain'
-                    style={{
-                        width: props.width,
-                        height: props.width / props.aspectRatio,
-                    }}
-                  />
-                </TouchableOpacity>
-            );
-        };
 
         return (
           <View style={styles.container}>
@@ -106,12 +133,6 @@ export default class HomeScreen extends React.Component {
 
               <View style={styles.getStartedContainer}>
                 {/*this._maybeRenderDevelopmentModeWarning()*/}
-
-                <ImageBtn
-                  source={require('../assets/images/athletics.jpg')}
-                  width={windowDims.width * 0.9}
-                  aspectRatio={2.666667}
-                />
 
                 { dynoButtons }
 
