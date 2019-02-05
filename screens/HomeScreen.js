@@ -75,6 +75,21 @@ export default class HomeScreen extends React.Component {
             console.log("no uiConfig");
         }
 
+        let ImageBtn = (props)=>{
+            return (
+                <TouchableOpacity>
+                  <Image
+                    source={props.source}
+                    resizeMode='contain'
+                    style={{
+                        width: props.width,
+                        height: props.width / props.aspectRatio,
+                    }}
+                  />
+                </TouchableOpacity>
+            );
+        };
+
         return (
           <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -92,35 +107,11 @@ export default class HomeScreen extends React.Component {
               <View style={styles.getStartedContainer}>
                 {/*this._maybeRenderDevelopmentModeWarning()*/}
 
-                <TouchableOpacity
-                  style={{
-                      flex: 1,
-                      // alignItems: 'center',
-                      // resizeMode: 'contain',
-                      // height: 100,
-                      // position: 'relative',
-
-                  }}>
-                  <Image
-                    source={require('../assets/images/athletics.jpg')}
-                    resizeMode='contain'
-                    style={{
-                        // width: '100%',
-                        // resizeMode: 'contain',
-                        // alignSelf: 'contain',
-                        // flexShrink: 1,
-                        // flex: 1,
-                        // width: null,
-                        // height: null,
-                        // flex: .5,
-                        width: windowDims.width,
-                        // width: 80,
-                        // height: null,
-                        resizeMode: 'contain',
-                        alignSelf: 'center',
-                    }}
-                  />
-                </TouchableOpacity>
+                <ImageBtn
+                  source={require('../assets/images/athletics.jpg')}
+                  width={windowDims.width * 0.9}
+                  aspectRatio={2.666667}
+                />
 
                 { dynoButtons }
 
