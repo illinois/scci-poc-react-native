@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-    Text,
-    TextInput,
-    View,
-} from 'react-native';
+
+import { Button, ThemeProvider, FormLabel, FormInput, Input } from 'react-native-elements';
+
 import layoutConstants from '../constants/Layout';
 
 export default class ProfileScreen extends React.Component {
@@ -17,13 +15,14 @@ export default class ProfileScreen extends React.Component {
 
     render() {
         return (
-            <View style={layoutConstants.styles.container}>
-              <Text>Name</Text>
-              <TextInput
-                onChangeText={(text)=> this.setState({name: text})}
-                value={this.state.text}
+            <ThemeProvider>
+              <Button title="hey" />
+              <Input
+                placeholder="Name"
+                onChangeText={(text)=>this.setState({name: text})}
+                value={this.state.name}
               />
-           </View>
+            </ThemeProvider>
         );
     }
 
