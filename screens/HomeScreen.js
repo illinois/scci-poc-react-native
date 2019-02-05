@@ -17,7 +17,9 @@ import { MonoText } from '../components/StyledText';
 
 import Immutable from 'immutable';
 
-const windowDims = Dimensions.get('window');
+import layoutConstants from '../constants/Layout';
+
+// const windowDims = Dimensions.get('window');
 
 const IMAGES_DIR = '../assets/images';
 const BUTTON_IMAGES = {
@@ -104,7 +106,7 @@ export default class HomeScreen extends React.Component {
                         <ImageBtn
                           key={`dyno-button-${idx}`}
                           source={BUTTON_IMAGES[widget.getIn(['image', 'path'])]}
-                          width={windowDims.width * 0.9}
+                          width={layoutConstants.window.width * 0.9}
                           aspectRatio={2.666667}
                           onPress={()=>{
                               console.log(`${title} was pressed`);
