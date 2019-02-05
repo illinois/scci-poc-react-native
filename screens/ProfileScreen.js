@@ -17,14 +17,13 @@ export default class ProfileScreen extends React.Component {
 
     render() {
         return (
-                <View style={layoutConstants.styles.container}>
-                <Text>Name</Text>
-                <TextInput
-            onChangeText={(text)=> this.setState({name: text})}
-            value={this.state.text}
-                />
-                </View>
-
+            <View style={layoutConstants.styles.container}>
+              <Text>Name</Text>
+              <TextInput
+                onChangeText={(text)=> this.setState({name: text})}
+                value={this.state.text}
+              />
+           </View>
         );
     }
 
