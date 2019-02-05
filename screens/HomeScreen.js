@@ -88,7 +88,7 @@ export default class HomeScreen extends React.Component {
                 .map((widget, idx)=>{
                     let destination = widget.get('destination');
                     let title = destination.get('title');
-                    console.log('widget', widget);
+                    // console.log('widget', widget);
                     // return (
                     //     <Button
                     //         key={"dyno-button-" + idx}
@@ -201,15 +201,6 @@ async function apiTest() {
 }
 
 const styles = StyleSheet.create({
-    // athleticsButton: {
-    //     // alignItems: 'center',
-    //     // padding: 10,
-    //     // height: 50,
-    //     // aspectRatio: .375,
-    //     // resizeMode: 'contain',
-    //     // flex: 1,
-    //     alignSelf: 'stretch',
-    // },
     container: {
         flex: 1,
         backgroundColor: '#fff',
