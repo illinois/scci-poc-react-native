@@ -134,13 +134,13 @@ export default class HomeScreen extends React.Component {
 
               <View style={styles.getStartedContainer}>
                 {/*this._maybeRenderDevelopmentModeWarning()*/}
-            { dynoButtons }
+
+                { dynoButtons }
 
                 <Button
-            title="Profile"
-            onPress={() => navigate('Profile', {})}
-                >
-                </Button>
+                  title="Profile"
+                  onPress={() => navigate('Profile', {})}
+                />
 
               </View>
 
