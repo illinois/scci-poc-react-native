@@ -42,7 +42,6 @@ export default class HomeScreen extends React.Component {
 
     async componentDidMount() {
         let config = await apiTest();
-        // console.log("testing", config);
         this.setState({uiConfig: Immutable.fromJS(config)});
     }
 
@@ -73,12 +72,6 @@ export default class HomeScreen extends React.Component {
             };
 
             dynoButtons = dynoWidgetsSeq
-                // .filter((widget)=>{
-                //     console.log("widget", widget);
-                //     let title = widget.get('title');
-                //     console.log("title", title);
-                //     return title !== undefined;
-                // })
                 .filter((widget)=>{
                     let destination = widget.get('destination');
                     let hasDestination = destination !== undefined;
@@ -88,18 +81,6 @@ export default class HomeScreen extends React.Component {
                 .map((widget, idx)=>{
                     let destination = widget.get('destination');
                     let title = destination.get('title');
-                    // console.log('widget', widget);
-                    // return (
-                    //     <Button
-                    //         key={"dyno-button-" + idx}
-                    //         title={title}
-                    //         onPress={()=>{
-                    //             console.log(title + " was pressed");
-                    //             // this.setState({webViewUri: 'http://google.com'});
-                    //             Linking.openURL(destination.get('value'));
-                    //         }}
-                    //     />
-                    // );
                     return (
                         <ImageBtn
                           key={`dyno-button-${idx}`}
@@ -108,7 +89,6 @@ export default class HomeScreen extends React.Component {
                           aspectRatio={2.666667}
                           onPress={()=>{
                               console.log(`${title} was pressed`);
-                              // this.setState({webViewUri: 'http://google.com'});
                               Linking.openURL(destination.get('value'));
                           }}
                         />
@@ -121,17 +101,6 @@ export default class HomeScreen extends React.Component {
         return (
           <View style={layoutConstants.styles.container}>
             <ScrollView style={layoutConstants.styles.container} contentContainerStyle={styles.contentContainer}>
-                {/*<View style={styles.welcomeContainer}>
-                <Image
-                  source={
-                      __DEV__
-                      ? require('../assets/images/robot-dev.png')
-                      : require('../assets/images/robot-prod.png')
-                  }
-                  style={styles.welcomeImage}
-                />
-                </View>*/}
-
               <View style={styles.getStartedContainer}>
                 {/*this._maybeRenderDevelopmentModeWarning()*/}
 
@@ -141,18 +110,8 @@ export default class HomeScreen extends React.Component {
                   title="Profile"
                   onPress={() => navigate('Profile', {})}
                 />
-
               </View>
-
             </ScrollView>
-
-            {/* <View style={styles.tabBarInfoContainer}>
-                <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-              <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-                <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-              </View>
-              </View> */}
           </View>
         );
     }
